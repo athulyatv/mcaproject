@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Stall Registration</title>
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="{% static 'registration/css/mm.css' %}" rel="stylesheet" media="all">
+    <script>
+        function valid()
+        {
+           
+            var a=f1.type.value;
+           
+            if(a=="onlinepayment")
+            {
+            
+                document.getElementById("demo").style.display="block";
+            }
+            if(a=="cash")
+            {
+            
+                document.getElementById("demo").style.display="none";
+            }
+        }
+
+    </script>
+   
+</head>
+<header>
+    {% include "cust_menubar.html" %}
+</header>
+<body>
+
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Payment</h2>
+                </div>
+                <div class="card-body">
+                    <form action="/payment1/{{data1.cust_orderid}}" method="POST" enctype="multipart/form-data" name="f1">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Payment Id</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="cust_orderid" value="{{payment_id}}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name"> Order Id</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="cust_orderid" value="{{data1.cust_orderid}}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name"> Payment Type</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <select name="type" onChange="valid();">
+                                        
+                                        <option value="onlinepayment">Online Payment</option>
+                                        <option value="cash">Cash On Delivery</option>
+                                        
+                                    </select>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="demo" style="display:none">
+                        <div class="form-row">
+                            <div class="name"> Bank Name</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="bank" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name"> Bank Account</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="Account" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name"> IFSC</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="ifsc" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name"> Amount</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="amount" value="{{data1.amount}}" >
+                                </div>
+                            </div>
+                        </div> 
+                
+</div>
+
+
+                <div class="card-footer">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Pay </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <!-- Jquery JS-->
+    <script src="{% static 'registration/vendor/jquery/jquery.min.js' %}"></script>
+
+
+    <!-- Main JS-->
+    <script src="{% static 'registration/js/global.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

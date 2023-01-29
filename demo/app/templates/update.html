@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/update1/{{data1.p_id}}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+              <td> PRODUCT ID</td>
+              <td><input type="text" name="id" id="" value="{{data1.p_id}}"></td>
+            </tr>
+            <tr>
+                <td> PRODUCT NAME</td>
+                <td><input type="text" name="name" id="" value="{{data1.p_name}}"></td>
+              </tr>
+              <tr>
+                <td>PRODUCT PRICE</td>
+                <td> <input type="number" name="price" id="" value="{{data1.p_price}}"> </td>
+              </tr>
+              <tr>
+                <td>PRODUCT PHOTO</td>
+                <td> <img src="{{data1.photo}}" width="100" height="100" alt=""> 
+                <input type="file" name="photo" id=""></td>
+              </tr>
+              <tr>
+                  <td></td>
+                <td><button type="submit">OK</button></td>
+              </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<form action="/ordr/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<label>order id</label>
+<input type="text" name="id" value="{{o_id}}" readonly><br>
+<label>product</label>
+<select name="product">
+    <option value="0">choose an item</option>
+    {% for ct in d %}
+    <option value="{{ct.p_id}}">{{ct.p_name}}</option>
+    {% endfor %}
+</select>
+<label>order date</label>
+<input type="date" name="date"><br>
+<label>quantity</label>
+<input type="text" name="quantity"><br>
+<label>status</label>
+<input type="text" name="status"><br>
+
+<input type="submit" value="submit">
+</form>

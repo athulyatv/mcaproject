@@ -1,0 +1,15 @@
+<table border="2px">
+    <tr>
+        <th> dept name</th>
+        <th>dept id</th>
+    </tr>
+    <tr>
+        {% for ct in data1 %}
+        <tr>
+            <td>{{ct.dept_id}}</td>
+            <td>{{ct.name}}</td>
+            <td><a href="/removedept/{{ct.dept_id}}">remove </a></td>
+        </tr>
+        {% endfor %}
+    </tr>
+</table>

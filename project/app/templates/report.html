@@ -1,0 +1,110 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{%static 'forms/fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{%static 'forms/css/owl.carousel.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{%static 'forms/css/bootstrap.min.css' %}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{%static 'forms/css/style.css' %}">
+
+    <title>STALLS</title>
+  </head>
+  <body>
+  
+    {% include "admin_menubar.html" %}
+  <div class="content">
+    
+    <div class="container">
+      <h2 class="mb-5">STALL DETAILS</h2>
+      
+
+      <div class="table-responsive">
+
+        <table class="table table-striped custom-table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Stall Id</th>
+              <th scope="col">Stall Number</th>
+              <th scope="col">Status</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row">
+                {% for ct in data1 %}
+                <tr>
+                    <td>{{ct.stall_id}}</td>
+                    <td>{{ct.stall_number}}</td>
+                    <td>{{ct.status}}</td>
+                    
+
+                  </tr>
+                {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+    <div class="container">
+        <h2 class="mb-5">RESTAURANT DETAILS</h2>
+        
+  
+        <div class="table-responsive">
+  
+          <table class="table table-striped custom-table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Restaurant Id</th>
+                <th scope="col">Restaurant Name</th>
+                <th scope="col">Sall Id</th>
+                <th scope="col">Veg/Nonveg</th>
+                <th scope="col">Phone Number</th>
+
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr scope="row">
+                  {% for ct in data2 %}
+        
+                  <tr>
+                      <td>{{ct.rest_id_id}}</td>
+                      <td>{{ct.rest_id.rest_name}}</td>
+                      <td>{{ct.stall_id_id}}</td>
+                      <td>{{ct.rest_id.type}}</td>
+                      <td>{{ct.rest_id.phone}}</td>
+  
+                    </tr>
+                  {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+  
+      </div>
+
+  </div>
+    
+    
+
+    <script src="{%static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{%static 'forms/js/popper.min.js' %}"></script>
+    <script src="{%static 'forms/js/bootstrap.min.js' %}"></script>
+    <script src="{%static 'forms/js/main.js' %}"></script>
+  </body>
+</html>
